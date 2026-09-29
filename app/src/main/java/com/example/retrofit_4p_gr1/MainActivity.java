@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                         pytaniaZInternetu = response.body();
-                        textViewPytanie.setText(pytaniaZInternetu.get(0).getTrescPytania());
+                        wyswietlPytanie(0);
                     }
 
                     @Override
@@ -70,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+
+    }
+    private void wyswietlPytanie(int nr){
+        radioGroupPytania.clearCheck();
+        textViewPytanie.setText(pytaniaZInternetu.get(nr).getTrescPytania());
+        radioButtonA.setText(pytaniaZInternetu.get(nr).getOdpA());
+        radioButtonB.setText(pytaniaZInternetu.get(nr).getOdpB());
+        radioButtonC.setText(pytaniaZInternetu.get(nr).getOdpC());
 
     }
 }
